@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Bernardo Almeida | Odontologia Premium em Santo Amaro – SP</title>
+  <meta name="description"
+    content="Clínica odontológica premium com Estética Dental, Ortodontia Invisível, Implantodontia e Harmonização Orofacial. Transforme seu sorriso com o Dr. Bernardo Almeida em Santo Amaro, São Paulo." />
+  <meta name="keywords"
+    content="dentista Santo Amaro, lentes de contato dental, alinhadores invisíveis, implante dental SP, harmonização orofacial" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#FAF8F4',
+            'cream-dark': '#F2EDE3',
+            gold: '#C9A84C',
+            'gold-light': '#E8D5A3',
+            'gold-dark': '#A8893A',
+            graphite: '#2C2C2C',
+            slate: '#6B6B6B',
+            'dark-bg': '#1A1A1A',
+            'card-bg': '#FFFFFF',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+          backgroundImage: {
+            'gold-gradient': 'linear-gradient(135deg, #C9A84C 0%, #E8D5A3 50%, #C9A84C 100%)',
+          },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    /* ── Base ── */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    }
+
+    body {
+      background-color: #FAF8F4;
+      color: #2C2C2C;
+      overflow-x: hidden;
+    }
+
+    /* ── Navbar scroll transition ── */
+    #navbar {
+      transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    #navbar.scrolled {
+      background: rgba(250, 248, 244, 0.95);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 24px rgba(0, 0, 0, 0.08);
+    }
+
+    /* ── Typography ── */
+    .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    /* ── Gold text gradient ── */
+    .text-gold-gradient {
+      background: linear-gradient(135deg, #C9A84C, #E8D5A3, #A8893A);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── CTA Button ── */
+    .btn-gold {
+      background: linear-gradient(135deg, #C9A84C 0%, #E8D5A3 50%, #C9A84C 100%);
+      background-size: 200% auto;
+      color: #1A1A1A;
+      font-weight: 600;
+      transition: background-position 0.4s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-gold:hover {
+      background-position: right center;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201, 168, 76, 0.4);
+    }
+
+    .btn-gold:active {
+      transform: translateY(0);
+    }
+
+    /* ── Outline button ── */
+    .btn-outline {
+      border: 1.5px solid #C9A84C;
+      color: #C9A84C;
+      transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background: #C9A84C;
+      color: #1A1A1A;
+      transform: translateY(-2px);
+    }
+
+    /* ── Service Card ── */
+    .service-card {
+      transition: transform 0.35s cubic-bezier(.25, .8, .25, 1),
+        box-shadow 0.35s cubic-bezier(.25, .8, .25, 1),
+        border-color 0.35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(201, 168, 76, 0.18);
+      border-color: #C9A84C;
+    }
+
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, #C9A84C 0%, #E8D5A3 100%);
+      color: #1A1A1A;
+    }
+
+    .service-icon {
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    /* ── Testimonial card ── */
+    .testimonial-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ── FAQ ── */
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+    }
+
+    .faq-answer.open {
+      max-height: 600px;
+      transition: max-height 0.55s cubic-bezier(1, 0, 1, 0), padding 0.3s ease;
+    }
+
+    .faq-icon {
+      transition: transform 0.35s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    /* ── Differentials icons ── */
+    .diff-icon-wrap {
+      transition: transform 0.3s ease;
+    }
+
+    .diff-item:hover .diff-icon-wrap {
+      transform: scale(1.12);
+    }
+
+    /* ── Section fade-in on scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Divider ── */
+    .gold-divider {
+      display: block;
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, #C9A84C, #E8D5A3);
+      border-radius: 99px;
+    }
+
+    /* ── Hero overlay ── */
+    .hero-overlay {
+      background: linear-gradient(120deg,
+          rgba(26, 26, 26, 0.78) 0%,
+          rgba(26, 26, 26, 0.55) 50%,
+          rgba(201, 168, 76, 0.12) 100%);
+    }
+
+    /* ── Social icon hover ── */
+    .social-link {
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .social-link:hover {
+      color: #C9A84C;
+      transform: translateY(-2px);
+    }
+
+    /* ── WhatsApp float button & Animations ── */
+    #whatsapp-float {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    #whatsapp-float:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.55);
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+      }
+      50% {
+        transform: scale(1.35);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(0.95);
+        opacity: 0;
+      }
+    }
+
+    .wa-pulse-ring {
+      animation: pulse-ring 2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+    }
+
+    .wa-pulse-ring-delayed {
+      animation: pulse-ring 2s cubic-bezier(0.45, 0, 0.55, 1) 0.6s infinite;
+    }
+
+    /* ── Scroll bar ── */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #FAF8F4;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #C9A84C;
+      border-radius: 3px;
+    }
+
+    /* ── Contact Form ── */
+    .form-input {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(201, 168, 76, 0.25);
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      font-size: 0.875rem;
+      outline: none;
+      transition: border-color 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .form-input:focus {
+      border-color: #C9A84C;
+      background: rgba(255, 255, 255, 0.11);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+    }
+
+    .form-input option {
+      background: #2C2C2C;
+      color: #fff;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 6px;
+    }
+
+    .form-success {
+      display: none;
+      background: rgba(201, 168, 76, 0.15);
+      border: 1px solid rgba(201, 168, 76, 0.4);
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #E8D5A3;
+      font-size: 0.875rem;
+      text-align: center;
+
+    }
+
+    /* ── Mobile Menu ── */
+    #mobile-menu {
+    background-color: #ffffffeb;
+
+    }
+  </style>
+</head>
+
+<body class="bg-cream font-sans antialiased">
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║   FLOATING WHATSAPP BUTTON (ANIMATED)    ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <div class="fixed bottom-6 right-6 z-50 flex items-center justify-center">
+    <!-- Pulse Ring 1 -->
+    <span class="wa-pulse-ring absolute inset-0 rounded-full bg-[#25D366] pointer-events-none"></span>
+    <!-- Pulse Ring 2 (Delayed) -->
+    <span class="wa-pulse-ring-delayed absolute inset-0 rounded-full bg-[#25D366] pointer-events-none"></span>
+
+    <!-- Main Button -->
+    <a id="whatsapp-float" href="https://wa.me/5511980758483?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação!"
+      target="_blank" rel="noopener noreferrer" aria-label="Fale conosco pelo WhatsApp"
+      class="relative flex items-center justify-center w-14 h-14 rounded-full shadow-2xl transition-all duration-300"
+      style="background:#25D366;">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-white fill-current" viewBox="0 0 24 24">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+      </svg>
+    </a>
+  </div>
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║               NAVBAR FIXO               ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <header id="navbar" class="fixed top-0 left-0 w-full z-40 py-4 px-6 lg:px-12">
+    <nav class="max-w-7xl mx-auto flex items-center justify-between" role="navigation" aria-label="Navegação principal">
+
+      <!-- Logo -->
+      <a href="#inicio" aria-label="Início – Dr. Bernardo Almeida Odontologia">
+        <div class="flex flex-col leading-tight">
+          <span class="font-serif text-xl lg:text-2xl font-semibold tracking-wide text-graphite">Dr. Bernardo</span>
+          <span class="text-[10px] lg:text-xs font-light tracking-[0.3em] text-gold uppercase">Odontologia
+            Premium</span>
+        </div>
+      </a>
+
+      <!-- Desktop nav links -->
+      <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate" role="list">
+        <li><a href="#servicos" class="hover:text-gold transition-colors duration-200">Especialidades</a></li>
+        <li><a href="#sobre" class="hover:text-gold transition-colors duration-200">Sobre</a></li>
+        <li><a href="#depoimentos" class="hover:text-gold transition-colors duration-200">Depoimentos</a></li>
+        <li><a href="#faq" class="hover:text-gold transition-colors duration-200">FAQ</a></li>
+        <li><a href="#contato" class="hover:text-gold transition-colors duration-200">Contato</a></li>
+      </ul>
+
+      <!-- CTA Button desktop -->
+      <a href="https://wa.me/5511980758483?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação!" target="_blank"
+        rel="noopener noreferrer" id="navbar-cta"
+        class="hidden lg:inline-flex btn-gold rounded-full px-6 py-2.5 text-sm items-center gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        Agendar Avaliação
+      </a>
+
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-graphite" aria-label="Abrir menu"
+        aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu"
+      class="hidden lg:hidden absolute top-full left-0 w-full bg-cream/97 backdrop-blur-md shadow-xl border-t border-cream-dark py-6 px-6"
+      role="menu">
+      <ul class="flex flex-col gap-4 text-sm font-medium text-graphite" role="list">
+        <li><a href="#servicos" class="block py-2 hover:text-gold transition-colors" role="menuitem">Especialidades</a>
+        </li>
+        <li><a href="#sobre" class="block py-2 hover:text-gold transition-colors" role="menuitem">Sobre</a></li>
+        <li><a href="#depoimentos" class="block py-2 hover:text-gold transition-colors" role="menuitem">Depoimentos</a>
+        </li>
+        <li><a href="#faq" class="block py-2 hover:text-gold transition-colors" role="menuitem">FAQ</a></li>
+        <li><a href="#contato" class="block py-2 hover:text-gold transition-colors" role="menuitem">Contato</a></li>
+        <li>
+          <a href="https://wa.me/5511980758483?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação!" target="_blank"
+            rel="noopener noreferrer"
+            class="btn-gold inline-block rounded-full px-6 py-3 text-sm text-center w-full mt-2 text-center">
+            Agendar Avaliação
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║                  HERO                   ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section id="inicio" class="relative min-h-screen flex items-center" aria-label="Início">
+      <!-- BG image -->
+      <div class="absolute inset-0 bg-dark-bg overflow-hidden">
+        <img src="assets/hero-clinic.png" alt="Interior do consultório premium Dr. Bernardo Almeida"
+          class="w-full h-full object-cover opacity-60 scale-105" style="object-position: center 30%;" />
+        <div class="hero-overlay absolute inset-0"></div>
+      </div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 pt-32 pb-24 w-full">
+        <div class="max-w-2xl">
+          <!-- Badge -->
+          <div
+            class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 backdrop-blur-sm px-4 py-1.5 mb-6">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+            <span class="text-gold text-xs font-medium tracking-widest uppercase">Odontologia de Excelência · Santo
+              Amaro – SP</span>
+          </div>
+
+          <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-semibold text-white leading-tight mb-6">
+            O sorriso que<br />
+            <em class="text-gold-gradient font-serif">transforma</em><br />
+            quem você é.
+          </h1>
+
+          <p class="text-white/80 text-base lg:text-lg leading-relaxed mb-10 max-w-xl font-light">
+            Na clínica do Dr. Bernardo Almeida, cada tratamento é uma experiência de cuidado personalizado — do
+            diagnóstico por escaneamento 3D ao resultado que vai além do que você imaginou.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div class="flex flex-wrap gap-4">
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20gostaria%20de%20agendar%20uma%20avaliação%20gratuita!"
+              target="_blank" rel="noopener noreferrer" id="hero-cta-primary"
+              class="btn-gold rounded-full px-8 py-4 text-base font-semibold inline-flex items-center gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+              </svg>
+              Agendar Avaliação Gratuita
+            </a>
+            <a href="#sobre" id="hero-cta-secondary"
+              class="btn-outline rounded-full px-8 py-4 text-base font-semibold inline-flex items-center gap-2">
+              Conheça a Clínica
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Social proof stats -->
+          <div class="flex flex-wrap gap-8 mt-14 pt-10 border-t border-white/15">
+            <div>
+              <p class="font-serif text-3xl font-semibold text-white">+1.200</p>
+              <p class="text-white/55 text-xs tracking-widest uppercase mt-0.5">Sorrisos Transformados</p>
+            </div>
+            <div>
+              <p class="font-serif text-3xl font-semibold text-white">12 anos</p>
+              <p class="text-white/55 text-xs tracking-widest uppercase mt-0.5">de Experiência Clínica</p>
+            </div>
+            <div>
+              <p class="font-serif text-3xl font-semibold text-white">4.9 ★</p>
+              <p class="text-white/55 text-xs tracking-widest uppercase mt-0.5">Avaliação no Google</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll indicator -->
+      <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40 text-xs tracking-widest uppercase animate-bounce">
+        <span>role</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║           ESPECIALIDADES (SERVIÇOS)      ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section id="servicos" class="py-24 lg:py-32 bg-cream" aria-label="Especialidades">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+          <span class="text-gold text-xs font-semibold tracking-[0.35em] uppercase block mb-3">Especialidades</span>
+          <h2 class="font-serif text-4xl lg:text-5xl font-semibold text-graphite mb-4 leading-tight">
+            Tecnologia e arte a serviço<br />do seu sorriso
+          </h2>
+          <span class="gold-divider mx-auto"></span>
+        </div>
+
+        <!-- Cards grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <!-- Card 1 -->
+          <article id="servico-estetica"
+            class="service-card bg-card-bg border border-cream-dark rounded-3xl p-8 flex flex-col gap-5 reveal">
+            <div class="service-icon w-14 h-14 rounded-2xl bg-cream-dark flex items-center justify-center text-gold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-2">Estética Dental</h3>
+              <p class="text-xs text-gold font-medium tracking-widest uppercase mb-3">Lentes de Contato</p>
+              <p class="text-slate text-sm leading-relaxed">Facetas ultrafinas que redesenham a forma, cor e simetria
+                dos dentes, com resultado natural e duradouro — sem desgaste ou anestesia na maioria dos casos.</p>
+            </div>
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20tenho%20interesse%20em%20Lentes%20de%20Contato%20Dental."
+              target="_blank" rel="noopener noreferrer"
+              class="mt-auto text-gold text-sm font-semibold flex items-center gap-1 group hover:gap-2 transition-all duration-200">
+              Saiba mais <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </article>
+
+          <!-- Card 2 -->
+          <article id="servico-ortodontia"
+            class="service-card bg-card-bg border border-cream-dark rounded-3xl p-8 flex flex-col gap-5 reveal">
+            <div class="service-icon w-14 h-14 rounded-2xl bg-cream-dark flex items-center justify-center text-gold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-2">Ortodontia Invisível</h3>
+              <p class="text-xs text-gold font-medium tracking-widest uppercase mb-3">Alinhadores</p>
+              <p class="text-slate text-sm leading-relaxed">Alinhadores transparentes e removíveis que corrigem o
+                posicionamento dos dentes com total discrição. Sem bráquetes, sem desconforto, sem compromissos com a
+                estética.</p>
+            </div>
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20tenho%20interesse%20em%20Ortodontia%20Invisível."
+              target="_blank" rel="noopener noreferrer"
+              class="mt-auto text-gold text-sm font-semibold flex items-center gap-1 group hover:gap-2 transition-all duration-200">
+              Saiba mais <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </article>
+
+          <!-- Card 3 -->
+          <article id="servico-implante"
+            class="service-card bg-card-bg border border-cream-dark rounded-3xl p-8 flex flex-col gap-5 reveal">
+            <div class="service-icon w-14 h-14 rounded-2xl bg-cream-dark flex items-center justify-center text-gold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-2">Implantodontia</h3>
+              <p class="text-xs text-gold font-medium tracking-widest uppercase mb-3">Avançada</p>
+              <p class="text-slate text-sm leading-relaxed">Reabilitação oral com implantes de titânio de última
+                geração, planejados digitalmente para garantir função, estética e longevidade. Resultados permanentes,
+                qualidade de vida restaurada.</p>
+            </div>
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20tenho%20interesse%20em%20Implantodontia." target="_blank"
+              rel="noopener noreferrer"
+              class="mt-auto text-gold text-sm font-semibold flex items-center gap-1 group hover:gap-2 transition-all duration-200">
+              Saiba mais <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </article>
+
+          <!-- Card 4 -->
+          <article id="servico-harmonizacao"
+            class="service-card bg-card-bg border border-cream-dark rounded-3xl p-8 flex flex-col gap-5 reveal">
+            <div class="service-icon w-14 h-14 rounded-2xl bg-cream-dark flex items-center justify-center text-gold">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-2">Harmonização Orofacial</h3>
+              <p class="text-xs text-gold font-medium tracking-widest uppercase mb-3">& Estética Facial</p>
+              <p class="text-slate text-sm leading-relaxed">Procedimentos minimamente invasivos — bioestimuladores,
+                toxina botulínica e preenchimentos — que harmonizam o rosto e rejuvenescem sem perder a naturalidade.
+              </p>
+            </div>
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20tenho%20interesse%20em%20Harmonização%20Orofacial."
+              target="_blank" rel="noopener noreferrer"
+              class="mt-auto text-gold text-sm font-semibold flex items-center gap-1 group hover:gap-2 transition-all duration-200">
+              Saiba mais <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </article>
+
+        </div><!-- end grid -->
+
+        <!-- CTA central -->
+        <div class="text-center mt-14 reveal">
+          <a href="https://wa.me/5511980758483?text=Olá%2C%20gostaria%20de%20conhecer%20todos%20os%20tratamentos."
+            target="_blank" rel="noopener noreferrer" id="servicos-cta"
+            class="btn-gold rounded-full px-10 py-4 text-sm font-semibold inline-flex items-center gap-2">
+            Agende sua Avaliação Gratuita
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║          DIFERENCIAIS & SOBRE            ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section id="sobre" class="py-24 lg:py-32 bg-cream-dark" aria-label="Sobre o Dr. Bernardo e diferenciais">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+        <!-- Grid: foto + texto -->
+        <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-24">
+
+          <!-- Foto -->
+          <div class="reveal relative">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[4/5]">
+              <img src="assets/dr-bernardo.png" alt="Dr. Bernardo Almeida – Dentista em Santo Amaro, São Paulo"
+                class="w-full h-full object-cover object-top" />
+              <!-- Gold accent overlay bottom -->
+              <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-dark-bg/60 to-transparent"></div>
+              <div class="absolute bottom-6 left-6 right-6">
+                <p class="text-white font-serif text-2xl font-semibold">Dr. Bernardo Almeida</p>
+                <p class="text-gold text-xs tracking-widest uppercase mt-1">CRO 1709800 · Odontologia Premium</p>
+              </div>
+            </div>
+            <!-- Decorative element -->
+            <div class="absolute -top-4 -left-4 w-24 h-24 rounded-full border-2 border-gold/30 -z-10"></div>
+            <div class="absolute -bottom-6 -right-6 w-40 h-40 rounded-full border border-gold/20 -z-10"></div>
+          </div>
+
+          <!-- Texto -->
+          <div class="reveal">
+            <span class="text-gold text-xs font-semibold tracking-[0.35em] uppercase block mb-4">Sobre o
+              Especialista</span>
+            <h2 class="font-serif text-4xl lg:text-5xl font-semibold text-graphite leading-tight mb-2">
+              Mais do que um dentista —<br />
+              <em class="text-gold-gradient font-serif">um artista do sorriso.</em>
+            </h2>
+            <span class="gold-divider block my-6"></span>
+
+            <p class="text-slate leading-relaxed mb-4">
+              O Dr. Bernardo Almeida dedicou mais de 12 anos ao aperfeiçoamento das técnicas mais avançadas da
+              odontologia estética e reabilitadora. Formado com distinção, pós-graduado em Estética Dental,
+              Implantodontia e Harmonização Orofacial, ele combina precisão científica com olhar artístico — resultando
+              em sorrisos que parecem sempre ter sido assim.
+            </p>
+            <p class="text-slate leading-relaxed mb-8">
+              Sua clínica em Santo Amaro foi projetada para oferecer uma experiência sensorial completa: desde o design
+              acolhedor dos ambientes até o protocolo de diagnóstico digital com escaneamento intraoral 3D, que permite
+              que o paciente visualize seu resultado <strong class="text-graphite font-medium">antes mesmo de iniciar o
+                tratamento</strong>.
+            </p>
+
+            <!-- CRO badge -->
+            <div
+              class="inline-flex items-center gap-3 rounded-2xl bg-card-bg border border-cream-dark px-5 py-3 shadow-sm mb-8">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gold" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+              </svg>
+              <span class="text-sm text-slate">Registro Profissional: <strong class="text-graphite">CRO-SP
+                  1709800</strong></span>
+            </div>
+
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20Dr.%20Bernardo!%20Gostaria%20de%20agendar%20uma%20consulta."
+              target="_blank" rel="noopener noreferrer" id="sobre-cta"
+              class="btn-gold rounded-full px-8 py-4 text-sm font-semibold inline-flex items-center gap-2">
+              Conversar com o Dr. Bernardo
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+              </svg>
+            </a>
+          </div>
+        </div><!-- end grid -->
+
+        <!-- Diferenciais -->
+        <div class="reveal">
+          <div class="text-center mb-12">
+            <span class="text-gold text-xs font-semibold tracking-[0.35em] uppercase block mb-3">Por que nos
+              escolher</span>
+            <h2 class="font-serif text-3xl lg:text-4xl font-semibold text-graphite">Diferenciais da Clínica</h2>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+            <!-- Diferencial 1 -->
+            <div class="diff-item group bg-card-bg rounded-3xl p-8 border border-cream-dark shadow-sm">
+              <div class="diff-icon-wrap w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-3">Diagnóstico 3D Digital</h3>
+              <p class="text-slate text-sm leading-relaxed">Escaneamento intraoral de alta precisão que mapeia toda a
+                anatomia bucal em 3D, permitindo planejamento digital e visualização prévia do resultado final.</p>
+            </div>
+
+            <!-- Diferencial 2 -->
+            <div class="diff-item group bg-card-bg rounded-3xl p-8 border border-cream-dark shadow-sm">
+              <div class="diff-icon-wrap w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-3">Atendimento Humanizado</h3>
+              <p class="text-slate text-sm leading-relaxed">Cada paciente recebe atenção individualizada em um ambiente
+                pensado para transmitir calma e conforto. Sem pressa, sem julgamentos — apenas cuidado genuíno e
+                personalizado.</p>
+            </div>
+
+            <!-- Diferencial 3 -->
+            <div class="diff-item group bg-card-bg rounded-3xl p-8 border border-cream-dark shadow-sm">
+              <div class="diff-icon-wrap w-14 h-14 rounded-2xl bg-gold/10 flex items-center justify-center mb-5">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7 text-gold" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.562.562 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                </svg>
+              </div>
+              <h3 class="font-serif text-xl font-semibold text-graphite mb-3">Resultados Duradouros</h3>
+              <p class="text-slate text-sm leading-relaxed">Protocolos de excelência com materiais de altíssima
+                qualidade e acompanhamento pós-tratamento. Sua satisfação e saúde bucal são nosso compromisso a longo
+                prazo.</p>
+            </div>
+
+          </div>
+        </div><!-- end diferenciais -->
+
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║             DEPOIMENTOS                 ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section id="depoimentos" class="py-24 lg:py-32 bg-cream" aria-label="Depoimentos de pacientes">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+          <span class="text-gold text-xs font-semibold tracking-[0.35em] uppercase block mb-3">Depoimentos</span>
+          <h2 class="font-serif text-4xl lg:text-5xl font-semibold text-graphite mb-4 leading-tight">
+            Histórias reais de<br />transformação
+          </h2>
+          <span class="gold-divider mx-auto"></span>
+        </div>
+
+        <!-- Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+          <!-- Depoimento 1 -->
+          <article id="dep-1"
+            class="testimonial-card bg-card-bg rounded-3xl p-8 border border-cream-dark shadow-sm flex flex-col gap-5 reveal">
+            <div class="flex items-center gap-1">
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <blockquote class="text-slate leading-relaxed text-sm flex-1">
+              "Sempre fui muito insegura com meu sorriso. Depois das lentes de contato com o Dr. Bernardo, não consigo
+              mais parar de sorrir. O resultado ficou tão natural que as pessoas nem percebem que fiz algum procedimento
+              — só notam a diferença."
+            </blockquote>
+            <div class="flex items-center gap-3 pt-4 border-t border-cream-dark">
+              <div
+                class="w-11 h-11 rounded-full bg-gold/20 flex items-center justify-center text-gold font-serif font-semibold text-lg">
+                A</div>
+              <div>
+                <p class="text-graphite text-sm font-semibold">Ana Carolina M.</p>
+                <p class="text-slate text-xs">Lentes de Contato Dental</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Depoimento 2 -->
+          <article id="dep-2"
+            class="testimonial-card bg-graphite rounded-3xl p-8 border border-graphite shadow-lg flex flex-col gap-5 reveal">
+            <!-- Featured card -->
+            <div class="flex items-center gap-1">
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <blockquote class="text-white/80 leading-relaxed text-sm flex-1">
+              "Fiz meu implante com o Dr. Bernardo depois de anos evitando sorrir em fotos. O processo foi completamente
+              indolor e o acompanhamento foi impecável. Hoje tenho um sorriso que me orgulho de mostrar. É um
+              investimento que vale cada centavo."
+            </blockquote>
+            <div class="flex items-center gap-3 pt-4 border-t border-white/10">
+              <div
+                class="w-11 h-11 rounded-full bg-gold/30 flex items-center justify-center text-gold font-serif font-semibold text-lg">
+                R</div>
+              <div>
+                <p class="text-white text-sm font-semibold">Ricardo Pereira</p>
+                <p class="text-gold text-xs">Implantodontia</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Depoimento 3 -->
+          <article id="dep-3"
+            class="testimonial-card bg-card-bg rounded-3xl p-8 border border-cream-dark shadow-sm flex flex-col gap-5 reveal">
+            <div class="flex items-center gap-1">
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <svg class="w-4 h-4 text-gold fill-current" viewBox="0 0 20 20">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <blockquote class="text-slate leading-relaxed text-sm flex-1">
+              "Fiz a harmonização orofacial e me sinto 10 anos mais jovem. O Dr. Bernardo foi extremamente criterioso,
+              explicou todo o processo e o resultado ficou muito natural. Recomendo a quem quer rejuvenescer com
+              elegância e segurança."
+            </blockquote>
+            <div class="flex items-center gap-3 pt-4 border-t border-cream-dark">
+              <div
+                class="w-11 h-11 rounded-full bg-gold/20 flex items-center justify-center text-gold font-serif font-semibold text-lg">
+                M</div>
+              <div>
+                <p class="text-graphite text-sm font-semibold">Márcia Fontenele</p>
+                <p class="text-slate text-xs">Harmonização Orofacial</p>
+              </div>
+            </div>
+          </article>
+
+        </div><!-- end grid -->
+
+        <!-- Google rating bar -->
+        <div class="mt-12 flex justify-center reveal">
+          <div
+            class="inline-flex items-center gap-4 rounded-2xl bg-card-bg border border-cream-dark px-8 py-4 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="#4285F4">
+              <path
+                d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+              <path
+                d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                fill="#34A853" />
+              <path
+                d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                fill="#FBBC05" />
+              <path
+                d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                fill="#EA4335" />
+            </svg>
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-graphite font-semibold text-sm">4.9</span>
+                <div class="flex gap-0.5">
+                  <svg class="w-3.5 h-3.5 text-gold fill-current" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="w-3.5 h-3.5 text-gold fill-current" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="w-3.5 h-3.5 text-gold fill-current" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="w-3.5 h-3.5 text-gold fill-current" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                  <svg class="w-3.5 h-3.5 text-gold fill-current" viewBox="0 0 20 20">
+                    <path
+                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                  </svg>
+                </div>
+              </div>
+              <p class="text-slate text-xs">Baseado em +180 avaliações no Google</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║                  FAQ                    ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section id="faq" class="py-24 lg:py-32 bg-cream-dark" aria-label="Perguntas Frequentes">
+      <div class="max-w-3xl mx-auto px-6 lg:px-12">
+
+        <!-- Heading -->
+        <div class="text-center mb-16 reveal">
+          <span class="text-gold text-xs font-semibold tracking-[0.35em] uppercase block mb-3">Dúvidas Frequentes</span>
+          <h2 class="font-serif text-4xl lg:text-5xl font-semibold text-graphite mb-4 leading-tight">
+            Temos as respostas<br />que você precisa
+          </h2>
+          <span class="gold-divider mx-auto"></span>
+        </div>
+
+        <!-- FAQ accordion -->
+        <div class="flex flex-col gap-4 reveal" id="faq-container">
+
+          <!-- FAQ 1 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-1" aria-controls="faq-ans-1">
+              <span class="font-semibold text-graphite text-sm pr-4">Como funciona a avaliação gratuita?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-1" role="region" aria-labelledby="faq-btn-1">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                Na avaliação gratuita, o Dr. Bernardo realiza um exame clínico completo, coleta anamnese, análise do
+                sorriso e, se necessário, já solicita o escaneamento 3D. Ao final, você receberá um plano de tratamento
+                personalizado com todas as opções e investimentos necessários — sem compromisso.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-2" aria-controls="faq-ans-2">
+              <span class="font-semibold text-graphite text-sm pr-4">As lentes de contato dental exigem desgaste dos
+                dentes?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-2" role="region" aria-labelledby="faq-btn-2">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                Na maioria dos casos, as lentes de porcelana (facetas) modernas são ultrafinas (0,3mm) e exigem desgaste
+                mínimo ou nenhum desgaste dentário. O tipo de preparação depende da indicação clínica de cada caso,
+                avaliada individualmente com escaneamento digital.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-3" aria-controls="faq-ans-3">
+              <span class="font-semibold text-graphite text-sm pr-4">Quanto tempo leva o tratamento com
+                alinhadores?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-3" role="region" aria-labelledby="faq-btn-3">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                O tempo de tratamento varia conforme a complexidade do caso — desde 4 a 6 meses para casos simples até
+                18–24 meses para casos mais complexos. Os alinhadores devem ser usados no mínimo 22 horas por dia e
+                trocados a cada 1–2 semanas, conforme o protocolo prescrito.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-4" aria-controls="faq-ans-4">
+              <span class="font-semibold text-graphite text-sm pr-4">O implante dental é doloroso? Precisa de
+                cirurgia?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-4" role="region" aria-labelledby="faq-btn-4">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                O procedimento de implante é realizado sob anestesia local e é, na grande maioria dos casos, indolor
+                durante a cirurgia. O pós-operatório costuma ser tranquilo, com leve desconforto controlado com
+                analgésicos. A osseointegração leva de 2 a 6 meses, dependendo da densidade óssea do paciente.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-5" aria-controls="faq-ans-5">
+              <span class="font-semibold text-graphite text-sm pr-4">A harmonização orofacial tem efeito natural?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-5" role="region" aria-labelledby="faq-btn-5">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                Sim! Quando bem indicada e executada com critério estético, a harmonização orofacial produz resultados
+                extremamente naturais. O Dr. Bernardo segue um protocolo conservador baseado nas proporções áuricas do
+                rosto de cada paciente, priorizando sempre a naturalidade e a individualidade.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-6" aria-controls="faq-ans-6">
+              <span class="font-semibold text-graphite text-sm pr-4">Vocês aceitam planos odontológicos?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-6" role="region" aria-labelledby="faq-btn-6">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                A clínica atende de forma particular, o que garante dedicação exclusiva e uso de materiais premium em
+                cada procedimento. Oferecemos parcelamento em até 18× sem juros nos principais cartões e condições
+                especiais para pacientes que desejam realizar mais de um tratamento.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 7 -->
+          <div class="faq-item bg-card-bg rounded-2xl border border-cream-dark overflow-hidden">
+            <button
+              class="faq-btn w-full flex items-center justify-between gap-4 p-6 text-left hover:bg-cream transition-colors duration-200"
+              aria-expanded="false" id="faq-btn-7" aria-controls="faq-ans-7">
+              <span class="font-semibold text-graphite text-sm pr-4">Como faço para agendar minha consulta?</span>
+              <svg class="faq-icon w-5 h-5 text-gold flex-shrink-0" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+              </svg>
+            </button>
+            <div class="faq-answer" id="faq-ans-7" role="region" aria-labelledby="faq-btn-7">
+              <p class="px-6 pb-6 text-slate text-sm leading-relaxed">
+                O agendamento é rápido e fácil! Você pode entrar em contato via WhatsApp (11) 98075-8483, ligar
+                diretamente ou preencher nossa mensagem de contato. Atendemos de segunda a sexta das 8h às 18h e sábados
+                das 8h às 13h.
+              </p>
+            </div>
+          </div>
+
+        </div><!-- end accordion -->
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════════╗ -->
+    <!-- ║          BANNER CTA FINAL                ║ -->
+    <!-- ╚══════════════════════════════════════════╝ -->
+    <section id="contato-form" class="py-20 lg:py-28 bg-graphite"
+      aria-label="Chamada para ação final e formulário de contato">
+      <div class="max-w-7xl mx-auto px-6 lg:px-12">
+        <div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+          <!-- Coluna esquerda: texto + CTA -->
+          <div class="reveal">
+            <span class="text-gold text-xs font-semibold tracking-[0.35em] uppercase block mb-5">Dê o primeiro
+              passo</span>
+            <h2 class="font-serif text-4xl lg:text-5xl font-semibold text-white mb-6 leading-tight">
+              Seu sorriso dos sonhos<br />
+              <em class="text-gold-gradient font-serif">começa com uma conversa.</em>
+            </h2>
+            <p class="text-white/60 text-base mb-8 leading-relaxed">
+              Agende sua avaliação gratuita e descubra o tratamento ideal para o seu caso. Sem compromisso, com toda a
+              atenção que você merece.
+            </p>
+
+            <!-- Info cards -->
+            <div class="flex flex-col gap-4 mb-10">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span class="text-white/70 text-sm">Avaliação gratuita, sem compromisso</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span class="text-white/70 text-sm">Resposta em até 2 horas no horário comercial</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-gold/15 flex items-center justify-center flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <span class="text-white/70 text-sm">Parcelamento em até 18× sem juros</span>
+              </div>
+            </div>
+
+            <a href="https://wa.me/5511980758483?text=Olá%2C%20Dr.%20Bernardo!%20Gostaria%20de%20agendar%20minha%20avaliação%20gratuita."
+              target="_blank" rel="noopener noreferrer" id="final-cta"
+              class="btn-gold rounded-full px-8 py-4 text-sm font-semibold inline-flex items-center gap-2.5">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+              </svg>
+              Prefiro falar pelo WhatsApp
+            </a>
+          </div>
+
+          <!-- Coluna direita: formulário de contato -->
+          <div class="reveal">
+            <div class="rounded-3xl p-8 lg:p-10"
+              style="background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); backdrop-filter: blur(8px);">
+              <h3 class="font-serif text-2xl font-semibold text-white mb-1">Envie uma mensagem</h3>
+              <p class="text-white/45 text-sm mb-7">Preencha o formulário e entraremos em contato em breve.</p>
+
+              <!-- Mensagem de sucesso -->
+              <div id="form-success" class="form-success mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 inline mr-2" fill="none" viewBox="0 0 24 24"
+                  stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Mensagem enviada com sucesso! Entraremos em contato em breve.
+              </div>
+
+              <!-- Mensagem de erro da API -->
+              <div id="form-error" class="hidden bg-red-500/20 border border-red-500/40 rounded-xl p-4 text-red-200 text-sm mb-6 text-center">
+                Ocorreu um erro ao enviar a mensagem. Por favor, tente novamente ou entre em contato pelo WhatsApp.
+              </div>
+
+              <form id="contact-form" novalidate class="flex flex-col gap-5">
+                <input type="hidden" name="access_key" value="aff3faf8-db56-486f-b8fc-c1ce3e97ed03" />
+                <!-- Nome -->
+                <div>
+                  <label for="form-nome" class="form-label">Seu nome *</label>
+                  <input type="text" id="form-nome" name="nome" placeholder="Ex: Maria Silva" class="form-input"
+                    required autocomplete="name" />
+                  <p class="form-error text-red-400 text-xs mt-1.5 hidden" id="err-nome">Por favor, informe seu nome.
+                  </p>
+                </div>
+
+                <!-- Telefone -->
+                <div>
+                  <label for="form-telefone" class="form-label">WhatsApp / Telefone *</label>
+                  <input type="tel" id="form-telefone" name="telefone" placeholder="(11) 9 0000-0000" class="form-input"
+                    required autocomplete="tel" />
+                  <p class="form-error text-red-400 text-xs mt-1.5 hidden" id="err-telefone">Por favor, informe seu
+                    telefone.</p>
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label for="form-email" class="form-label">E-mail</label>
+                  <input type="email" id="form-email" name="email" placeholder="seu@email.com" class="form-input"
+                    autocomplete="email" />
+                </div>
+
+                <!-- Tratamento de interesse -->
+                <div>
+                  <label for="form-tratamento" class="form-label">Tratamento de interesse *</label>
+                  <select id="form-tratamento" name="tratamento" class="form-input" required>
+                    <option value="" disabled selected>Selecione uma especialidade...</option>
+                    <option value="estetica">Estética Dental · Lentes de Contato</option>
+                    <option value="ortodontia">Ortodontia Invisível · Alinhadores</option>
+                    <option value="implante">Implantodontia Avançada</option>
+                    <option value="harmonizacao">Harmonização Orofacial</option>
+                    <option value="outro">Outro / Não sei ainda</option>
+                  </select>
+                  <p class="form-error text-red-400 text-xs mt-1.5 hidden" id="err-tratamento">Selecione um tratamento.
+                  </p>
+                </div>
+
+                <!-- Mensagem -->
+                <div>
+                  <label for="form-mensagem" class="form-label">Mensagem (opcional)</label>
+                  <textarea id="form-mensagem" name="mensagem" rows="3"
+                    placeholder="Conte um pouco sobre o que deseja melhorar no seu sorriso..."
+                    class="form-input resize-none"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit" id="form-submit"
+                  class="btn-gold rounded-2xl px-6 py-4 text-sm font-semibold flex items-center justify-center gap-2 w-full mt-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                  </svg>
+                  <span id="btn-label">Enviar Mensagem</span>
+                </button>
+
+                <p class="text-white/25 text-xs text-center leading-relaxed">
+                  Seus dados são tratados com segurança e privacidade.
+                </p>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║                 FOOTER                  ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <footer id="contato" class="bg-dark-bg text-white/70" aria-label="Rodapé e informações de contato">
+    <div class="max-w-7xl mx-auto px-6 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Col 1: Marca -->
+      <div class="lg:col-span-1">
+        <div class="mb-4">
+          <p class="font-serif text-2xl font-semibold text-white">Dr. Bernardo Almeida</p>
+          <p class="text-xs font-light tracking-[0.3em] text-gold uppercase mt-0.5">Odontologia Premium</p>
+        </div>
+        <p class="text-sm leading-relaxed text-white/50 mb-6">
+          Transformando sorrisos com ciência, arte e cuidado genuíno há mais de 12 anos em Santo Amaro, São Paulo.
+        </p>
+        <p class="text-xs text-white/30">CRO-SP 1709800</p>
+      </div>
+
+      <!-- Col 2: Especialidades -->
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-5 tracking-wide">Especialidades</h3>
+        <ul class="flex flex-col gap-2.5 text-sm">
+          <li><a href="#servico-estetica" class="hover:text-gold transition-colors duration-200">Estética Dental ·
+              Lentes de Contato</a></li>
+          <li><a href="#servico-ortodontia" class="hover:text-gold transition-colors duration-200">Ortodontia Invisível
+              · Alinhadores</a></li>
+          <li><a href="#servico-implante" class="hover:text-gold transition-colors duration-200">Implantodontia
+              Avançada</a></li>
+          <li><a href="#servico-harmonizacao" class="hover:text-gold transition-colors duration-200">Harmonização
+              Orofacial</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Contato -->
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-5 tracking-wide">Contato</h3>
+        <ul class="flex flex-col gap-3 text-sm">
+          <li class="flex items-start gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold mt-0.5 flex-shrink-0" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            <span>Rua Amador Bueno, 504<br />Santo Amaro – São Paulo – SP</span>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+            <a href="tel:+5511980758483" class="hover:text-gold transition-colors">(11) 98075-8483</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gold flex-shrink-0" fill="none"
+              viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            <a href="mailto:dr.bernardo@gmail.com" class="hover:text-gold transition-colors">dr.bernardo@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Horários + Redes Sociais -->
+      <div>
+        <h3 class="text-white font-semibold text-sm mb-5 tracking-wide">Horários</h3>
+        <ul class="flex flex-col gap-2 text-sm mb-8">
+          <li class="flex justify-between">
+            <span class="text-white/50">Segunda – Sexta</span>
+            <span class="text-white/80">8:00 – 18:00</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-white/50">Sábado</span>
+            <span class="text-white/80">8:00 – 13:00</span>
+          </li>
+          <li class="flex justify-between">
+            <span class="text-white/50">Domingo</span>
+            <span class="text-white/40">Fechado</span>
+          </li>
+        </ul>
+
+        <h3 class="text-white font-semibold text-sm mb-4 tracking-wide">Redes Sociais</h3>
+        <div class="flex items-center gap-4">
+          <!-- Instagram -->
+          <a href="https://instagram.com/bernasalmeida" target="_blank" rel="noopener noreferrer"
+            class="social-link text-white/50" aria-label="Instagram @bernasalmeida">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+          <!-- WhatsApp -->
+          <a href="https://wa.me/5511980758483" target="_blank" rel="noopener noreferrer"
+            class="social-link text-white/50" aria-label="WhatsApp">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+            </svg>
+          </a>
+          <!-- Google Maps -->
+          <a href="https://maps.google.com/?q=Rua+Amador+Bueno,+504+Santo+Amaro+São+Paulo" target="_blank"
+            rel="noopener noreferrer" class="social-link text-white/50" aria-label="Ver no Google Maps">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+              <path
+                d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 7.469 16.812 12 24c4.531-7.188 8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11a3 3 0 110-6 3 3 0 010 6z" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Instagram handle -->
+        <a href="https://instagram.com/bernasalmeida" target="_blank" rel="noopener noreferrer"
+          class="inline-block mt-3 text-xs text-gold/70 hover:text-gold transition-colors">
+          @bernasalmeida
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/5">
+      <div
+        class="max-w-7xl mx-auto px-6 lg:px-12 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/25">
+        <p>© 2025 Dr. Bernardo Almeida – Odontologia Premium. Todos os direitos reservados.</p>
+        <p>CRO-SP 1709800 · Santo Amaro, São Paulo – SP</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ╔══════════════════════════════════════════╗ -->
+  <!-- ║           JAVASCRIPT (Vanilla)          ║ -->
+  <!-- ╚══════════════════════════════════════════╝ -->
+  <script>
+    /* ── 1. Navbar scroll effect ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    /* ── 2. Mobile menu toggle ── */
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    mobileBtn.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      mobileMenu.classList.toggle('hidden', isOpen);
+      iconOpen.classList.toggle('hidden', !isOpen);
+      iconClose.classList.toggle('hidden', isOpen);
+      mobileBtn.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        iconOpen.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+        mobileBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    /* ── 3. FAQ Accordion ── */
+    document.querySelectorAll('.faq-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const faqItem = btn.closest('.faq-item');
+        const answer = faqItem.querySelector('.faq-answer');
+        const isOpen = faqItem.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item').forEach(item => {
+          item.classList.remove('open');
+          item.querySelector('.faq-answer').classList.remove('open');
+          item.querySelector('.faq-btn').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked (if it was closed)
+        if (!isOpen) {
+          faqItem.classList.add('open');
+          answer.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    /* ── 4. Scroll reveal (IntersectionObserver) ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Staggered delay for sibling elements
+          const siblings = entry.target.parentElement?.querySelectorAll('.reveal');
+          let delay = 0;
+          if (siblings) {
+            siblings.forEach((el, idx) => {
+              if (el === entry.target) delay = idx * 80;
+            });
+          }
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, delay);
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ── 5. Smooth scroll for anchor links ── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          const offset = 80; // navbar height
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ── 6. Contact Form ── */
+    const contactForm = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+    const formSubmitBtn = document.getElementById('form-submit');
+    const btnLabel = document.getElementById('btn-label');
+
+    // Máscara de telefone
+    const phoneInput = document.getElementById('form-telefone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', (e) => {
+        let v = e.target.value.replace(/\D/g, '').substring(0, 11);
+        if (v.length > 10) {
+          v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+        } else if (v.length > 6) {
+          v = v.replace(/^(\d{2})(\d{4,5})(\d{0,4})$/, '($1) $2-$3');
+        } else if (v.length > 2) {
+          v = v.replace(/^(\d{2})(\d{0,5})$/, '($1) $2');
+        }
+        e.target.value = v;
+      });
+    }
+
+    // Validação inline
+    function validateField(input, errorId, condition) {
+      const err = document.getElementById(errorId);
+      if (!condition) {
+        input.style.borderColor = 'rgba(248,113,113,0.7)';
+        err && err.classList.remove('hidden');
+        return false;
+      }
+      input.style.borderColor = 'rgba(201,168,76,0.6)';
+      err && err.classList.add('hidden');
+      return true;
+    }
+
+    // Limpar erro ao digitar
+    ['form-nome', 'form-telefone', 'form-tratamento'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => {
+        el.style.borderColor = '';
+        const errId = 'err-' + id.replace('form-', '');
+        const errEl = document.getElementById(errId);
+        if (errEl) errEl.classList.add('hidden');
+      });
+    });
+
+    const formError = document.getElementById('form-error');
+
+    if (contactForm) {
+      contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById('form-nome');
+        const telefone = document.getElementById('form-telefone');
+        const tratamento = document.getElementById('form-tratamento');
+
+        const v1 = validateField(nome, 'err-nome', nome.value.trim().length >= 2);
+        const v2 = validateField(telefone, 'err-telefone', telefone.value.replace(/\D/g, '').length >= 10);
+        const v3 = validateField(tratamento, 'err-tratamento', tratamento.value !== '');
+
+        if (!v1 || !v2 || !v3) return;
+
+        // Oculta alertas anteriores
+        formError.classList.add('hidden');
+        formSuccess.style.display = 'none';
+
+        // Estado de loading
+        formSubmitBtn.disabled = true;
+        btnLabel.textContent = 'Enviando...';
+        formSubmitBtn.style.opacity = '0.75';
+
+        const formData = new FormData(contactForm);
+
+        try {
+          const response = await fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            formSuccess.style.display = 'block';
+            contactForm.reset();
+          } else {
+            console.error('Erro Web3Forms:', data);
+            formError.classList.remove('hidden');
+          }
+        } catch (err) {
+          console.error('Erro de rede:', err);
+          formError.classList.remove('hidden');
+        } finally {
+          formSubmitBtn.disabled = false;
+          btnLabel.textContent = 'Enviar Mensagem';
+          formSubmitBtn.style.opacity = '1';
+        }
+      });
+    }
+  </script>
+
+</body>
+
+</html>
